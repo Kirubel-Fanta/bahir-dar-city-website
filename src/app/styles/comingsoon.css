@@ -1,0 +1,7 @@
+.coming-soon-text {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    place-items: center;
+    min-height: 80vh;
+}

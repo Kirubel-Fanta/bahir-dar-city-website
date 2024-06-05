@@ -1,95 +1,69 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Grid from "@mui/material/Grid";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import XIcon from "@mui/icons-material/X";
+import MainFeaturedPost from "./components/MainFeaturedPost";
+import FeaturedPost from "./components/FeaturedPost";
+import Main from "./components/Main";
+import Sidebar from "./components/Sidebar";
+import image1 from '../static/media/Bahir-dar-1.jpg'
+
+
+const mainFeaturedPost = {
+  title: "Welcome to Bahir Dar City community website",
+  description: "Connecting Bahir Dar: A Global Community Hub",
+  image: "../static/media/Bahir-dar-5.jpg",
+  imageText: "main image description",
+};
+
+const featuredPosts = [
+  {
+    title: "Give back to the community",
+    date: "May 4",
+    description:
+      "Want to make a difference but feeling overwhelmed?  Forget capes and tights – everyday acts of giving back can be your superpower!  This post will show you how simple actions can create ripples of positive change in your community.",
+    image: "../static/media/Bahir-dar-3.jpg",
+    imageLabel: "Image Text",
+  },
+  {
+    title: "What to visit in Bahir Dar",
+    date: "May 4",
+    description: `Bahir Dar's stunning scenery, with Lake Tana shimmering under the midday sun, leaves you speechless. But this city offers so much more! Venture beyond the picture-perfect views to discover a rich tapestry of history, culture, and adventure.`,
+    image: "../static/media/Bahir-dar-1.jpg",
+    imageLabel: "Image Text",
+  },
+];
+
+const posts = ['post1', 'post2', 'post3'];
+
+const sidebar = {
+  title: "About",
+  description:
+    "Welcome to our non-profit community website, dedicated to connecting individuals born in Bahir Dar, now residing around the globe. Our mission is to facilitate swift information exchange, foster collaboration, and support one another. Join us in building a stronger, united community.",
+  archives: [{ title: "Coming soon...", url: "#" }],
+  social: [
+    { name: "X (Coming soon)", icon: XIcon },
+    { name: "Facebook (Coming soon)", icon: FacebookIcon },
+  ],
+};
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <main>
+      <MainFeaturedPost post={mainFeaturedPost} />
+      <Grid container spacing={4}>
+        {featuredPosts.map((post) => (
+          <FeaturedPost key={post.title} post={post} />
+        ))}
+      </Grid>
+      <Grid container spacing={5} sx={{ mt: 3 }}>
+        <Main title="News and Updates" posts={posts} />
+        <Sidebar
+          title={sidebar.title}
+          description={sidebar.description}
+          archives={sidebar.archives}
+          social={sidebar.social}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      </Grid>
     </main>
   );
 }

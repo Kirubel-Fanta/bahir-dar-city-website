@@ -1,0 +1,27 @@
+/* home.css */
+.layout {
+  min-height: 85vh; /* Ensure container fills viewport height */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+}
+
+.main {
+  flex: 1; /* Allow main content to fill remaining space */
+}
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Adjust as needed */
+  grid-gap: 10px; /* Adjust grid gap for spacing */
+}
+
+.gallery-container img {
+  object-fit: cover; /* Ensure images fill their containers */
+}
+
+/* Optional: Style spanning image (if needed) */
+.gallery-container img:nth-child(3) {
+  grid-column-span: 2; /* Span across 2 columns */
+}
