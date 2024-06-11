@@ -35,7 +35,6 @@ function Header(props) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log(process.env.MAILCHIMP_API_KEY);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

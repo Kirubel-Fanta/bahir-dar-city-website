@@ -1,7 +1,7 @@
 import mailchimp from "@mailchimp/mailchimp_marketing";
 
 mailchimp.setConfig({
-  apiKey: '5cc3907d6d6d24aac79a36bc8f41de67-us17',
+  apiKey: process.env.MAILCHIMP_API_KEY,
   server: "us17",
 });
 
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
           res.status(400).json({ error: errorBody.detail, title: errorBody.title }); // User-friendly message
         } else {
           console.error("Error adding member to Mailchimp:", error);
-          res.status(500).json({ error: "Something went wrong" }); // Generic error message
+          res.status(500).json({ error: "Something went wrong", code: process.env.MAILCHIMP_API_KEY }); // Generic error message
         }
       }
     }
