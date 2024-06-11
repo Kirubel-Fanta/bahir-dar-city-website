@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
             <main>{children}</main>
           </Container>
           <Footer
-            title="Bahir-Dar City"
+            title="Bahir-Dar City."
             description="We welcome you in peace, we amaze you with nature."
           />
       </body>
