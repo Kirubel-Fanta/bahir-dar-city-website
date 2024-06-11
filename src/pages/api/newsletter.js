@@ -32,7 +32,7 @@ export default async function handler(req, res) {
           res.status(400).json({ error: errorBody.detail, title: errorBody.title }); // User-friendly message
         } else {
           console.error("Error adding member to Mailchimp:", error);
-          res.status(500).json({ error: "Something went wrong", code: process.env.MAILCHIMP_API_KEY }); // Generic error message
+          res.status(500).json({ error: "Something went wrong" }); // Generic error message
         }
       }
     }
