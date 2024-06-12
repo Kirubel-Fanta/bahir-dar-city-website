@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,20 @@ export default function RootLayout({ children }) {
   
   return (
     <html>
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GE4XE01B"></Script>
+        <Script id='google-analytics'>
+          {
+            `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', 'G-C4GE4XE01B');
+            `
+          }
+        </Script>
+      </head>
       <body>
         <CssBaseline />
           <Container maxWidth="xl" className="layout">
