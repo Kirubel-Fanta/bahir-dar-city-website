@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Script from "next/script";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
             `
           }
         </Script>
+        <Analytics />
       </head>
       <body>
         <CssBaseline />
