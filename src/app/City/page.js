@@ -40,7 +40,7 @@ const City = () => {
     title: 'Traditional dance shows',
     description: `Discover the vibrant nightlife of Ethiopia with dazzling cultural shows and traditional dances. Immerse yourself in lively performances that showcase Ethiopia’s rich heritage through music, dance, and colorful costumes. 
       Experience the rhythmic beats and joyful atmosphere, making for an unforgettable night out. Ideal for culture enthusiasts and adventure seekers alike!`,
-    image: '/static/media/checheho.jpg'
+    image: '/static/media/Checheho.jpg'
   }
 
   return (
