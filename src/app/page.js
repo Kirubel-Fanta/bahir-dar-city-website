@@ -5,13 +5,19 @@ import MainFeaturedPost from "./components/MainFeaturedPost";
 import FeaturedPost from "./components/FeaturedPost";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
-import image1 from '../static/media/Bahir-dar-1.jpg'
-
+import image1 from "../static/media/Bahir-dar-1.jpg";
+import { Paper } from "@mui/material";
 
 const mainFeaturedPost = {
   title: "Welcome to Bahir Dar City community website",
   description: "Connecting Bahir Dar: A Global Community Hub",
   image: "../static/media/Bahir-dar-5.jpg",
+  imageText: "main image description",
+};
+
+const secondMainFeaturedPost = {
+  title: "Welcome to Bahir Dar City community websites",
+  description: "Connecting Bahir Dar: A Global Community Hub",
   imageText: "main image description",
 };
 
@@ -33,7 +39,7 @@ const featuredPosts = [
   },
 ];
 
-const posts = ['post1', 'post2', 'post3'];
+const posts = ["post1", "post2", "post3"];
 
 const sidebar = {
   title: "About",
@@ -50,6 +56,35 @@ export default function Home() {
   return (
     <main>
       <MainFeaturedPost post={mainFeaturedPost} />
+      {/* <Paper
+        sx={{
+          position: "relative",
+          backgroundColor: "grey.800",
+          color: "#fff",
+          mb: 4,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundColor: "white",
+          color: "black",
+        }}
+      >
+        Unveil the Enchanting Ethiopian Gem: Bahir Dar Ethiopia's Breathtaking
+        Lakeside Paradise Discover Bahir Dar, Ethiopia's captivating
+        third-largest city, nestled on the shores of the legendary Lake Tana,
+        Africa's largest freshwater lake. Explore a treasure trove of
+        experiences: Historic Monasteries: Unearth the secrets of ancient
+        monasteries on mystical islands dotting the lake. Charming Lodges:
+        Immerse yourself in tranquility at charming lodges overlooking the
+        serene waters. Vivid Fish Markets: Delve into the vibrant culture at
+        bustling fish markets brimming with exotic finds. Majestic Blue Nile
+        Falls: Witness the raw power of the Blue Nile Falls, the source of the
+        mighty Nile River. Beyond the City Limits: Bahir Dar is your gateway to
+        breathtaking natural wonders and rich cultural heritage. Explore the
+        UNESCO Biosphere Reserve around Lake Tana, embark on birdwatching
+        adventures, or delve into the fascinating history of the Amhara region.
+        Start Planning Your Bahir Dar Escape Today!
+      </Paper> */}
       <Grid container spacing={4}>
         {featuredPosts.map((post) => (
           <FeaturedPost key={post.title} post={post} />

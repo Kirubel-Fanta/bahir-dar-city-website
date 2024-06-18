@@ -1,4 +1,16 @@
 /* home.css */
+:root {
+  --primaryColor: #af9a7d;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #cfcfcf;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 3px;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
 .layout {
   min-height: 85vh; /* Ensure container fills viewport height */
   display: flex;
@@ -24,4 +36,174 @@
 /* Optional: Style spanning image (if needed) */
 .gallery-container img:nth-child(3) {
   grid-column-span: 2; /* Span across 2 columns */
+}
+/* Hero */
+.defaultHero,
+.roomsHero {
+  min-height: calc(100vh - 66px);
+  background: url("../../static/media/AdobeStock_6.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.roomsHero {
+  background-image: url("../../static/media/Bahir-dar-1.jpg");
+  min-height: 60vh;
+}
+/* End of Hero */
+/* Banner */
+.banner {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  max-width: 50%;
+}
+.banner h1 {
+  font-size: 2.5rem;
+}
+.banner div {
+  width: 10rem;
+  height: 5px;
+  background: var(--primaryColor);
+  margin: 1.7rem auto;
+}
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 576px) {
+  .banner {
+    padding: 2rem 3rem;
+  }
+  .banner h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .banner {
+    padding: 2rem 6rem;
+  }
+  .banner h1 {
+    font-size: 4rem;
+  }
+}
+/* End of Banner */
+/* services */
+.services {
+  padding: 5rem 0;
+}
+.services {
+  background: var(--darkGrey);
+  text-align: center;
+}
+.services-center {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+  font-size: larger;
+}
+.service span {
+  display: inline-block;
+  color: var(--primaryColor);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.services h6 {
+  letter-spacing: var(--mainSpacing);
+}
+.services p {
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 992px) {
+  .services-center {
+    width: 95vw;
+    max-width: 1170px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .services p {
+    width: 100%;
+  }
+}
+
+.image-with-text {
+  min-height: calc(80vh - 66px);
+  
+
+  width: calc(100% - 10px);
+  border-radius: 20px;
+  position: relative;
+}
+
+.text-box {
+  background-color: #3f3a7f;
+  height: 27rem;
+  float: right;
+  margin-top: -35rem;
+  border-bottom-left-radius: 1rem;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 53px;
+  padding-right: 251px;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 75%;
+}
+
+
+
+.text-box li {
+  display: flex;
+  flex-direction: column;
+}
+
+.slick-dots {
+  bottom: 30% !important;
+}
+
+
+
+.heighlights {
+  font-family: Merriweather, sans-serif;
+  font-weight: 700;
+  line-height: 1.375;
+  --tw-text-opacity: 1;
+  color: rgb(34 34 34 / var(--tw-text-opacity));
+  font-size: 2.28886641rem;
+  font-weight: 600;
+  height: 5rem;
+  border-left: 3px solid;
+  margin-top: -23rem;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+.heighlight-box {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  background: var(--darkGrey);
+  padding-top: 2re;
+}
+@media (max-width: 860px) {
+  .heighlight-box {
+    flex-direction: column; /* Change to column for smaller screens */
+  }
+  .heighlights {
+    margin-top: 1rem;
+  }
 }

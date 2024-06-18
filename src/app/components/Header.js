@@ -77,7 +77,7 @@ function Header(props) {
 
   return (
     <div>
-      <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Toolbar sx={{ borderBottom: 1, borderColor: "divider", maxWidth: '100%'}} maxWidth='100%'>
         <Button size="small" onClick={handleOpen}>
           Subscribe
         </Button>
@@ -102,7 +102,7 @@ function Header(props) {
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ justifyContent: "space-between", overflowX: "auto", color: 'black!important' }}
+        sx={{ justifyContent: "space-between", overflowX: "auto", color: 'black!important', maxWidth: '100%' }}
       >
         {sections.map((section) => (
           <Link
