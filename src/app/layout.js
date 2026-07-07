@@ -1,70 +1,44 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import CssBaseline from "@mui/material/CssBaseline";
-import Container from "@mui/material/Container";
+import { Inter, Fraunces } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import "./globals.css";
+import NavBar from "@/components/layout/NavBar";
+import Footer from "@/components/layout/Footer";
+import Providers from "@/components/Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces" });
 
 export const metadata = {
-  title: "Bahir Dar City Website",
-  description: "Bahir Dar City Website",
+  title: {
+    default: "Bahir Dar City — Everything Bahir Dar, in one place",
+    template: "%s | Bahir Dar City",
+  },
+  description:
+    "The digital home of Bahir Dar: businesses, attractions, events, jobs, real estate, and community — for residents, tourists, students, and the diaspora.",
 };
 
 export default function RootLayout({ children }) {
-  const sections = [
-    // { title: "Culture", url: "/comingsoon" },
-    { title: "The City", url: "/City" },
-    { title: "Pictures", url: "/pictures" },
-    { title: "Give back", url: "/comingsoon" },
-    // { title: "Invest", url: "/comingsoon" },
-    { title: "Opinion", url: "/comingsoon" },
-    // { title: "Business", url: "/comingsoon" },
-    { title: "Jobs", url: "/comingsoon" },
-  ];
-
   return (
-    <html>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <head>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-C4GE4XE01B"
-        ></Script>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-C4GE4XE01B" />
         <Script id="google-analytics">
           {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-    
-              gtag('config', 'G-C4GE4XE01B');
-            `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-C4GE4XE01B');
+          `}
         </Script>
         <Analytics />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charset="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
       </head>
-      <body>
-        <CssBaseline />
-        <Container maxWidth="100%" className="layout">
-          <Header title="Bahir Dar City" sections={sections} maxWidth="xl"/>
+      <body className="font-sans">
+        <Providers>
+          <NavBar />
           <main>{children}</main>
-        </Container>
-        <Footer
-          title="Bahir-Dar City."
-          description="We welcome you in peace, we amaze you with nature."
-        />
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

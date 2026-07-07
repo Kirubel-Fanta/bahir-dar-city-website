@@ -1,66 +1,30 @@
-'use client'
-import React, { useState, useEffect } from 'react';
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import Image from "next/image";
 
 const photos = [
-  { src: "/static/media/Bahir-dar-5.jpg", width: 3, height: 3 }, // Adjust paths if needed
-  { src: "/static/media/Bahir-dar-7.jpg", width: 1, height: 3 },
-  { src: "/static/media/Bahir-dar-3.jpg", width: 2, height: 6 },
-  { src: "/static/media/Bahir-dar-4.jpg", width: 2, height: 3 },
-  { src: "/static/media/Bahir-dar-1.jpg", width: 2, height: 3 },
-  { src: "/static/media/Bahir-dar-8.jpg", width: 4, height: 3 },
-  { src: "/static/media/Bahir-dar-9.jpg", width: 2, height: 3 },
-  { src: "/static/media/Bahir-dar-10.jpg", width: 2, height: 3 },
+  "/static/media/Bahir-dar-1.jpg",
+  "/static/media/Bahir-dar-2.jpg",
+  "/static/media/Bahir-dar-3.jpg",
+  "/static/media/Bahir-dar-4.jpg",
+  "/static/media/Bahir-dar-5.jpg",
+  "/static/media/Bahir-dar-6.jpg",
+  "/static/media/Bahir-dar-7.jpg",
+  "/static/media/Bahir-dar-8.jpg",
+  "/static/media/Bahir-dar-9.jpg",
+  "/static/media/Bahir-dar-10.jpg",
+  "/static/media/Bahir-dar-11.jpg",
 ];
 
-const itemData = photos.map((photo) => ({
-  img: photo.src,
-  title: "Bahir Dar", // Or a more specific title for the picture
-  rows: photo.height,
-  cols: photo.width,
-}));
-
-const Pictures = () => {
-  // const [blogs, setBlogs] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchBlogs = async () => {
-  //     setIsLoading(true);
-  //     setError(null);
-
-  //     try {
-  //       const response = await fetch('http://127.0.0.1:8000/api/blogs');
-  //       const data = await response.json();
-  //       setBlogs(data);
-  //     } catch (error) {
-  //       setError(error.message);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   fetchBlogs();
-  // }, []);
-
-  // console.log(blogs);
+export default function Pictures() {
   return (
-    <>
-      <ImageList variant="quilted" cols={4} rowHeight={121}>
-        {itemData.map((item) => (
-          <ImageListItem key={item.img} cols={item.cols} rows={item.rows}>
-            <img
-              src={`${item.img}?w=${121 * item.cols}&h=${121 * item.rows}&fit=crop&auto=format`}
-              alt={item.title}
-              loading="lazy"
-            />
-          </ImageListItem>
+    <div className="container-page py-14">
+      <h1 className="mb-6 font-display text-3xl font-semibold text-stone-900">Bahir Dar in pictures</h1>
+      <div className="masonry-columns">
+        {photos.map((src) => (
+          <div key={src} className="masonry-item overflow-hidden rounded-xl">
+            <Image src={src} alt="Bahir Dar" width={500} height={500} className="w-full object-cover" />
+          </div>
         ))}
-      </ImageList>
-    </>
+      </div>
+    </div>
   );
-};
-
-export default Pictures;
+}
